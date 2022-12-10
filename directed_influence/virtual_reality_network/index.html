@@ -1,0 +1,49 @@
+<head>
+  <title>My A-Frame Scene</title>
+  <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-forcegraph-component"></script>
+</head>
+
+<body>
+  <a-scene>
+    <a-entity cursor="rayOrigin: mouse; mouseCursorStylesEnabled: true;" raycaster="objects: [forcegraph];"></a-entity>
+    <a-entity
+            laser-controls="hand: left"
+            raycaster="objects: [forcegraph]; lineColor: steelblue; lineOpacity: 0.95;"
+    ></a-entity>
+    <a-entity
+            laser-controls="hand: right"
+            raycaster="objects: [forcegraph]; lineColor: steelblue; lineOpacity: 0.95;"
+    ></a-entity>
+
+    <!-- The graph layout -->
+    <a-entity forcegraph="
+        json-url: myGraphData.json;
+        node-color: red;
+        node-rel-size: 4;
+        link-width: value;
+        on-node-hover: node => document.querySelector('#forcegraph-tooltip')
+          .setAttribute('value', node ? node.id : '');
+        on-node-click: node => document.querySelector('#forcegraph-tooltip')
+          .setAttribute('value', `Sent message to ${node.id}!`);
+      "></a-entity>
+
+    <!-- Background -->
+    <a-sky color="#111"></a-sky>
+
+    <a-camera
+        look-controls="pointerLockEnabled: false"
+        wasd-controls="fly: true; acceleration: 600;"
+      >
+        <!-- Text on Hover and Click -->
+        <a-text
+          id="forcegraph-tooltip"
+          position="0 -0.25 -1"
+          width="2"
+          align="center"
+          color="lavender"
+        ></a-text>
+      </a-camera>
+
+  </a-scene>
+</body>

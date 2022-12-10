@@ -127,3 +127,16 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Pycharm
+.idea
+idea/
+
+# Data
+*.csv
+*.gz
+*.npz
+*.pt
+*.ckpt
+version*/
+gcn_model*/

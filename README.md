@@ -19,8 +19,8 @@ pip install -r requirements.txt
 
 There is an issue installing torch-scatter where it takes centuries to build the wheel.  To avoid this, 
 follow the instructions on 
-[Pytorch Geometric's documentation](https://pytorch-geometric.readthedocs.io/en/latest/notes/installation.html).  
-Use the version of PyTorch specified in requirements.txt (1.12.0).  Use pip.  To get your CUDA version, 
+[Pytorch Geometric's documentation](https://pytorch-geometric.readthedocs.io/en/latest/notes/installation.html).  Use 
+the version of PyTorch specified in requirements.txt (1.12.0).  Use pip.  To get your CUDA version, 
 run `nvcc --version`.  You might also find 
 [this StackOverflow question](https://stackoverflow.com/questions/67285115/building-wheels-for-torch-sparse-in-colab-takes-forever) helpful.
 
